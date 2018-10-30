@@ -1,0 +1,91 @@
+doctype html
+html(lang='en')
+  head
+
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+
+    // bootstrap setting
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css', integrity='sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB', crossorigin='anonymous')
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css', crossorigin='anonymous')
+    // fontawesome
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    // stylesheet lin
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+    // Optional JavaScript
+    // jQuery first, then Popper.js, then Bootstrap JS
+    script(src='https://code.jquery.com/jquery-3.2.1.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', integrity='sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49', crossorigin='anonymous')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js', integrity='sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T', crossorigin='anonymous')
+    script(src='https://cdn.ckeditor.com/ckeditor5/1.0.0-alpha.2/classic/ckeditor.js')
+    title NibangNaebang
+  body   
+    if flashMessages
+      each texts, type in flashMessages
+        .container.fixed-top.mt-5
+          .alert.alert-dismissible.fade.show(class=`alert-${type}`)
+            each msg in texts
+              | #{msg} 
+            button.close(type='button', data-dismiss='alert', aria-label='close')
+              span(aria-hidden='true') &times;
+   
+
+    
+
+block content
+  nav.nav.navbar.navbar-expand-lg.navbar-light.bg-light#mainnav
+      a.navbar-brand.justify-content-center(href='/')#mainlogo
+        img(src='https://wpclassevent.s3.amazonaws.com/0058c4c4-44d3-4d7a-b510-68d73482698f/mainlogo2.png', width='160', height='auto', alt='logo')
+
+  img.d-block.w-100(src='https://wpclassevent.s3.amazonaws.com/1d79c724-d41c-4b32-bdca-1169495b9eed/test.jpg', alt='mainimg')#mainimg
+  img.d-block.w-100(src='https://wpclassevent.s3.amazonaws.com/bd50995e-0326-4431-81ea-ca75c7c48517/maincomment2.png', alt='maincomment')#maincomment
+  main.img
+  
+ 
+  .row.col-lg-10.col-md-12.col-sm-12.mx-auto.mt-5
+    //.col-lg-10.col-12.mx-auto.center-icon
+    .card.col-lg-2.col-md-4.col-sm-6.mx-auto.border-0
+      .card-body.center-icon.main-icon-color 
+        a(href='/rent')
+          #firsticon.i.far.fa-building.fa-4x
+          p 니방대여
+    |  
+    .card.col-lg-2.col-md-4.col-sm-6.mx-auto.border-0
+      .card-body.center-icon.main-icon-color 
+        a(href='/recipe')
+          #secondicon.i.fas.fa-utensils.fa-4x
+          p 레시피
+    |   
+    .card.col-lg-2.col-md-4.col-sm-6.mx-auto.border-0
+      .card-body.center-icon.main-icon-color 
+        a(href='/review') 
+          #thirdicon.i.i.fas.fa-map-marked-alt.fa-4x
+          p 건물평가
+    |
+    if (!currentUser)
+      .card.col-lg-2.col-md-4.col-sm-6.mx-auto.border-0
+        .card-body.center-icon.main-icon-color
+            #signinicon.i.fas.fa-sign-in-alt.fa-4x( data-toggle='modal', data-target='#exampleModal', data-whatever='@mdo', style = 'cursor:pointer') 
+            p#signintext(style='cursor:pointer') 로그인
+            include ./_signin
+         
+      .card.col-lg-2.col-md-4.col-sm-6.mx-auto.border-0
+        .card-body.center-icon.main-icon-color 
+          a(href='/user/signup') 
+            #fourthicon.i.fas.fa-user-plus.fa-4x
+            p 회원가입
+    else
+      .card.col-lg-2.col-md-4.col-sm-12.mx-auto.border-0
+        .card-body.center-icon.main-icon-color 
+          a(href=`/user/mypage/${currentUser.id}`) 
+            #fourthicon.i.fa.fa-user.fa-4x
+            p 마이페이지
+      
+      .card.col-lg-2.col-md-4.col-12.mx-auto.border-0
+        .card-body.center-icon.main-icon-color 
+          a(href='/signout') 
+            #fourthicon.i.fas.fa-sign-out-alt.fa-4x
+            p 로그아웃
+    

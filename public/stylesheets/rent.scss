@@ -1,0 +1,73 @@
+.rent-like-btn {
+  .for-loading {display: none;}
+  cursor: pointer;
+
+  &.loading {
+    & > span {display: none;}
+    .for-loading {display: inline-block;}
+    filter: opacity(30%);
+    cursor: wait;
+  }
+
+  &.disabled {
+    color: #bbb;
+    cursor: default;
+  }
+}
+
+.rent-dislike-btn {
+  .for-loading {display: none;}
+  cursor: pointer;
+
+  &.loading {
+    & > span {display: none;}
+    .for-loading {display: inline-block;}
+    filter: opacity(30%);
+    cursor: wait;
+  }
+
+  &.disabled {
+    color: #bbb;
+    cursor: default;
+  }
+}
+
+#rentimg {
+  height: 300px;
+}
+
+// .rentcard {
+//   width: 18rem;
+// }
+#rentcard{
+  margin: auto;
+  float: none;
+
+  p{
+    font-size: 1.5em;
+    line-height: 1.5em;
+  }
+
+}
+.btn-primary{
+  background-color:  #0738be;
+}
+#slideimg{
+  height: 500px;
+  border-radius: 1%;
+}
+#rentoption{
+  i{
+    color: rgb(0, 0, 0);
+  }
+}
+
+@media only screen and (max-device-width : 576px) {
+  #slideimg {
+    height: 260px;
+  }
+
+  #rentimg {
+    height: 200px;
+  }
+}

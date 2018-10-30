@@ -1,0 +1,11 @@
+.row.col-lg-9.col-md-12.col-sm-12.mx-auto.no-gutters
+  each process in recipe_process
+    .card.col-lg-7.col-md-12.col-sm-12.mx-auto.mb-3
+      if process.STRE_STEP_IMAGE_URL
+        img#recipeimg.card-img-top(src=process.STRE_STEP_IMAGE_URL, alt='Card image cap')
+      .card-body
+        h5.card-title
+          |STEP #{process.COOKING_NO} 
+        p.card-text=process.COOKING_DC
+        p.card-text
+          small.text-muted 

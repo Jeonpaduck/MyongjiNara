@@ -1,0 +1,28 @@
+//.col-lg-6.mx-auto
+    .card.border-0
+        a.card-title.mx-auto.mt-5(href='/') 
+            h1 니방내방
+        .card-body.col-lg-10.mx-auto
+            form(action='/signin', method='POST')
+              .form-group.row
+                  .col-sm-10.mx-auto
+                      input#inputEmail.form-control(type='email', name='email', placeholder='email')
+              |
+              .form-group.row
+                  .col-sm-10.mx-auto
+                      input#inputPassword.form-control(type='password', name='password', placeholder='Password')
+              |
+              button.col-lg-10.col-sm-10.btn.btn-primary.btn-lg.btn-block.mx-auto(type="submit")
+                  | 로그인
+            .row.col-lg-10.mx-auto.mt-5
+                .col-sm-3.mx-auto
+                    a.btn.facebookbutton(href='/auth/facebook')
+                        i.fab.fa-facebook.fa-5x.mb-3
+                |
+                .col-sm-3.mx-auto
+                    a.btn.googlebutton(href='/auth/google')
+                        i.fab.fa-google.fa-5x.mb-3
+                |
+                .col-sm-3.mx-auto
+                    a.btn.kakaobutton(href='/auth/kakao')
+                        i.fab.fa-kickstarter-k.fa-5x.mb-3

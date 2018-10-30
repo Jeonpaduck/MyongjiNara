@@ -1,0 +1,37 @@
+nav.nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  a.navbar-brand.justify-content-center(href='/')
+    img#logo(src='https://wpclassevent.s3.amazonaws.com/f7751f6a-540e-4cdf-8d7c-163460a4fd4c/logo.png', width='160', height='auto', alt='logo')
+  |
+  button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+    span.navbar-toggler-icon
+  |
+  #navbarSupportedContent.collapse.navbar-collapse.justify-content-end
+    |
+    ul.navbar-nav
+      |
+      li.nav-item 
+        a.nav-link(href='/recipe') 삽니다
+      |
+      li.nav-item
+        a.nav-link(href='/review') 팝니다
+      |
+      li.nav-item
+        a.nav-link(href='/rent') 고객문의
+      |
+    ul.navbar-nav
+      // 로그인 전 후 
+      if (!currentUser) 
+        li.nav-item
+          //a.nav-link(href='/signin') 로그인
+          button.btn.btn-white(type='button', data-toggle='modal', data-target='#exampleModal', data-whatever='@mdo') 로그인
+          include ./_signin
+
+        |
+        li.nav-item
+          a.nav-link(href='/user/signup') 회원가입
+      else
+        li.nav-item
+          a.nav-link(href=`/user/mypage/${currentUser.id}`) 마이페이지
+        |
+        li.nav-item
+          a.nav-link(href='/signout') 로그아웃

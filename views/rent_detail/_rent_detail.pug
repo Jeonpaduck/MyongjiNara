@@ -1,0 +1,57 @@
+hr
+.row.col-lg-12.col-md-12.col-sm-12.col-12.mx-auto.mt-3.no-gutters#rentrow
+  #carouselExampleFade.carousel.slide.carousel-fade.col-lg-6.col-md-8.col-sm-12(data-ride='carousel')
+    .carousel-inner
+      .carousel-item.active
+        img.d-block.w-100#slideimg(src=rent.img[0], alt='First slide')
+      - var len = rent.img.length;        
+      - var n = 1;
+      while n < len
+        .carousel-item
+            img.d-block.w-100#slideimg(src=rent.img[n], alt='slide')
+        - n++
+    a.carousel-control-prev(href='#carouselExampleFade', role='button', data-slide='prev')
+      span.carousel-control-prev-icon(aria-hidden='true')
+      span.sr-only Previous
+    a.carousel-control-next(href='#carouselExampleFade', role='button', data-slide='next')
+      span.carousel-control-next-icon(aria-hidden='true')
+      span.sr-only Next
+     
+
+  .col-lg-5
+    .card-body#rentcard    
+      p 지역 : #{rent.locate}
+      p 건물이름 : #{rent.detail_address}
+      p 기간 : #{rent.start_time} ~ #{rent.end_time}
+      p 가격 : #{rent.amount}
+      p 적정인원 : #{rent.suitable_person}
+      p=" < 세부 정보 > "
+      p!=rent.info
+      p.num-likes 좋아요 : #{rent.numLikes}
+      .buttons
+        if currentUser && !flag
+          button.btn.btn-color.rent-like-btn(data-id=rent.id) 
+            span.for-loading #[i.fa.fa-spin.fa-refresh] Loading
+            span #[i.fa.fa-thumbs-up] Like
+          script(src='/javascripts/rent_like.js')
+        else if currentUser && flag
+          button.btn.btn-color.rent-dislike-btn(data-id=rent.id) 
+            span.for-loading #[i.fa.fa-spin.fa-refresh] Loading
+            span #[i.fa.fa-thumbs-up] Dislike
+          script(src='/javascripts/rent_dislike.js')
+
+
+        if currentUser && currentUser.id==rent.author.id
+          p
+            a.btn.btn-primary.btn-lg(href=`/rent/${rent._id}?_method=DELETE`)
+              | 방 삭제
+            a.btn.btn-primary.btn-lg(href=`/rent/${rent._id}/edit`) 
+              | 방 수정
+            a.btn.btn-primary.btn-lg(href=`/rent/${rent._id}/sell?_method=PUT`) 
+              | 판매 완료
+
+      if currentUser && currentUser.id!=rent.author.id
+        a.btn.btn-primary.btn-lg(href=`/rent/${rent._id}/${currentUser.id}/email?_method=POST`) 판매자에게 이메일 보내기
+//- 옵션
+include _option
+include _comment

@@ -1,0 +1,20 @@
+hr
+.row.col-12.mx-auto.mt-3
+  .col-lg-8.col-12.mx-auto
+    include ./_title
+  | 
+.row.col-12.mx-auto.mt-3
+  include ./_material
+  |
+.row.col-12.mx-auto  
+  h1.col-lg-8.col-md-12.col-sm-12.mx-auto
+    |요리과정
+  include ./_process
+|
+.row.col-4.mx-auto.mb-3
+  if currentUser && !flag
+    button.btn-block.btn.btn-outline-danger.recipe-like-btn(type='button' data-id=recipe_default.id) 좋아요
+    script(src='/javascripts/recipe_like.js')
+  else if currentUser && flag
+    button.btn-block.btn.btn-outline-danger.recipe-dislike-btn(type='button' data-id=recipe_default.id) 좋아요 취소
+    script(src='/javascripts/recipe_dislike.js')

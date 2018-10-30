@@ -1,0 +1,127 @@
+body{
+    margin: 0;
+    //padding: 50px;
+    font: 14px "나눔바른고딕","Lucida Grande", Helvetica, Arial, sans-serif;
+
+}
+a{
+  color: #0738be;
+}
+hr{
+  border-color: rgba(202, 198, 198, 0.918);
+  border-width: 0.1em;
+}
+.main-icon-color{
+  color: #0738be;
+}
+#signinicon{
+  color: #0738be!important;
+}
+#mainlogo{
+  margin: 0 auto;
+  float: none;
+}
+
+nav.navbar{
+  background-color: white!important;
+  border-color: black!important;
+  //height: 7em!important;
+  padding: 0;
+
+  ul{
+    margin-top: 1em;
+    a{
+      color:black!important;
+      background-color: white!important;
+      font-size: 1.2em;
+    }
+    a:hover{
+      color: #0738be!important;
+    }
+  }
+}
+
+#maincomment{
+  // margin-top: -35%;
+  // margin-left: 32%;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -650px;
+  float: none;
+  height: 45em;
+  width: auto!important;
+}
+
+.center-icon{
+  margin: 0 auto;
+  float: none;
+}
+
+#mainPageDiv{
+  position : relative;
+  left : 10px;
+  top : -100px;
+}
+
+#carouselExampleSlidesOnly{
+  left: 25%;
+}
+
+#mainimg{
+  height: 55em;
+}
+
+.bottom_icon{
+  top : 100px !important;
+}
+
+#mainlogo{
+  left : 30%
+}
+
+.background_none{
+  background-color: white;
+}
+
+.line_none{
+  border : 0;
+}
+
+
+#signintext:hover{
+  text-decoration: underline;
+}
+
+@media only screen and (max-device-width : 768px) {
+
+  #mainimg{
+    display : none !important;
+    // position: relative;
+    // margin-left: auto;
+    // margin-right: auto;
+    // float: none;
+    // width: 100em!important;
+  }
+  #maincomment{
+    display : none !important;
+  }
+  // .row{
+  //   left:300px !important;
+  // }
+  // #maincomment{
+  //   display : none;
+  // }
+}
+
+#recipe_search,#rent_search{
+  background-color: #0738be!important;
+  color: white!important;
+}
+
+@media only screen and (min-device-width : 768px) {
+  #mainnav{
+    display : none;
+  }
+
+}

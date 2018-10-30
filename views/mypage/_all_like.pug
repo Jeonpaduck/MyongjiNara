@@ -1,0 +1,17 @@
+// Nav tabs
+ul#myTab.nav.nav-tabs.row.col-lg-9.col-12.mx-auto(role='tablist')
+  li.nav-item
+    a#roomlike-tab.nav-link.active(data-toggle='tab', href='#roomlike', role='tab', aria-controls='roomlike', aria-selected='true') 방 좋아요!!
+  li.nav-item
+    a#recipelike-tab.nav-link(data-toggle='tab', href='#recipelike', role='tab', aria-controls='recipelike', aria-selected='false') 레시피 좋아요!!
+  li.nav-item
+    a#myroom-tab.nav-link(data-toggle='tab', href='#myroom', role='tab', aria-controls='myroom', aria-selected='false') 내가 올린방!!  
+|
+// Tab panes
+.tab-content.row.col-lg-9.col-md-12.col-sm-12.mx-auto
+  #roomlike.tab-pane.active.col-lg-12.col-md-12.col-sm-12(role='tabpanel', aria-labelledby='roomlike-tab')
+    include _room_like
+  #recipelike.tab-pane.col-lg-12.col-md-12.col-sm-12(role='tabpanel', aria-labelledby='recipelike-tab')
+    include _recipe_like
+  #myroom.tab-pane.col-lg-12.col-md-12.col-sm-12(role='tabpanel', aria-labelledby='myroom-tab')
+    include _myroom  
